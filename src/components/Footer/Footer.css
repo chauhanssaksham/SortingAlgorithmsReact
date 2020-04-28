@@ -1,0 +1,10 @@
+footer{
+    position: absolute;
+    bottom:0;
+    height:80px;
+    background:rgb(29, 116, 197);
+    /* margin:0; */
+    padding:10px 10px;
+    display: flex;
+    width:100%;
+}

@@ -1,6 +1,6 @@
 .array-container{
-   position: fixed;
-   bottom:0;
+   position: absolute;
+   bottom:80px;
 }
 
 .array-bar{
