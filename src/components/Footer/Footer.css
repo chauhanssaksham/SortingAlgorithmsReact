@@ -17,11 +17,12 @@ footer div{
     align-content: center;
     justify-content: space-around;
 }
-a:visited{
+/* a:visited{
     color:white;
-}
+} */
 footer div a{
     display: inline-block;
+    color:white;
     padding:0 15px;
     text-decoration:none;
 }

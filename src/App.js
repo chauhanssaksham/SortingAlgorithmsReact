@@ -1,10 +1,25 @@
 import React, {useState} from 'react';
 import SortingVisualizer from './components/SortingVisualizer/SortingVisualizer'
 import Footer from './components/Footer/Footer'
+import mergeSort from './algos/mergeSort'
 
 function App() {
-
+    
     const [array, setArray] = useState([]);
+
+    const testFunctions = {
+        mergeSortTest: array => {
+            const JSsortedArray = [...array].sort(sortNumber);
+            const sortedArray = mergeSort(array);
+            console.log(areArraysEqual(JSsortedArray, sortedArray));
+        }
+    };
+    const algos = {
+        mergeSort: (arr)=>{
+            setArray(mergeSort(arr));
+
+        }
+    };
 
     const resetArray = (e) => {
         if(e){
@@ -20,7 +35,7 @@ function App() {
   return (
     <>
         <SortingVisualizer resetArray={resetArray} array={array}/> 
-        <Footer resetArray={resetArray}/>
+        <Footer array={array} resetArray={resetArray} testFunctions={testFunctions} algos={algos}/>
     </>
   );
 }
@@ -29,5 +44,19 @@ const randomIntFromInterval = (min, max) => {
     return Math.floor(Math.random()*(max - min + 1) + min);
 }
 
+const areArraysEqual = (arr1, arr2)=>{
+    if (arr1.length !== arr2.length){
+        return false;
+    }
+    for (let i=0; i<arr1.length; i++){
+        if (arr1[i] !== arr2[i]){
+            return false;
+        }
+    }
+    return true;
+}
 
+function sortNumber(a, b) {
+    return a - b;
+  }
 export default App;
