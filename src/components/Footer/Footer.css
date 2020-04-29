@@ -21,8 +21,12 @@ footer div{
     color:white;
 } */
 footer div a{
-    display: inline-block;
+    display: block;
     color:white;
     padding:0 15px;
     text-decoration:none;
+}
+.sortButtons div{
+    display: flex;
+    flex-direction: column;
 }

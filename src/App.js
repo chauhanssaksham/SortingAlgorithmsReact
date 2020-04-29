@@ -8,16 +8,26 @@ function App() {
     const [array, setArray] = useState([]);
 
     const testFunctions = {
-        mergeSortTest: array => {
-            const JSsortedArray = [...array].sort(sortNumber);
-            const sortedArray = mergeSort(array);
-            console.log(areArraysEqual(JSsortedArray, sortedArray));
+        mergeSortTest: () => {
+            for (let i=0; i<100; i++){
+                const arr = [];
+                for (let j=0; j<randomIntFromInterval(1,100); j++){
+                    arr.push(randomIntFromInterval(-1000,1000));
+                }
+                const JSsortedArray = [...array].sort(sortNumber);
+                const sortedArray = mergeSort(array);
+                if (areArraysEqual(JSsortedArray, sortedArray)) {
+                    console.log('true');
+                } else {
+                    console.log("FALSE!");
+                    break;
+                }
+            }
         }
     };
     const algos = {
         mergeSort: (arr)=>{
             setArray(mergeSort(arr));
-
         }
     };
 

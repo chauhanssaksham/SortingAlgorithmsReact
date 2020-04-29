@@ -5,12 +5,24 @@ const Footer = ({resetArray, algos, testFunctions, array}) => {
     return (
         <footer>
             <div><a href="#!" onClick={resetArray}>Generate new array</a></div>
-            <div>Est, aut laborum?</div>
-            <div>
-                <a href="#!" onClick={()=>{algos.mergeSort(array)}}>Merge Sort</a>
-                <a href="#!">Totam, nostrum.</a>
-                <a href="#!">Nulla, voluptate.</a>
-                <a href="#!">Odio, reiciendis.</a>
+            <div>Number of elements</div>
+            <div class="sortButtons">
+                <div>
+                    <a href="#!" onClick={()=>{algos.mergeSort(array)}}>Merge Sort</a>
+                    <a href="#!" onClick={()=>{testFunctions.mergeSortTest()}}>Merge Test</a>
+                </div>
+                <div>
+                    <a href="#!" >Bubble Sort</a>
+                    <a href="#!" >Bubble Test</a>
+                </div>
+                <div>
+                    <a href="#!" >Quick Sort</a>
+                    <a href="#!" >Quick Test</a>
+                </div>
+                <div>
+                    <a href="#!" >Heap Sort</a>
+                    <a href="#!" >Heap Test</a>
+                </div>
             </div>
         </footer>
     )
