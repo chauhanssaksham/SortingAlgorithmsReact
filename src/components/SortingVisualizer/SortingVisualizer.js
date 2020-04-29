@@ -1,26 +1,11 @@
-import React, {useState, useLayoutEffect} from 'react'
+import React, { useLayoutEffect} from 'react'
 import './SortingVisualizer.css'
 
-const randomIntFromInterval = (min, max) => {
-    return Math.floor(Math.random()*(max - min + 1) + min);
-}
 
-const SortingVisualizer = () => {
-
-    const [array, setArray] = useState([]);
-
+const SortingVisualizer = ({resetArray, array}) => {
     useLayoutEffect(()=>{
         resetArray();
     }, []);
-    
-    const resetArray = () => {
-        const arr = [];
-        for (let i=0; i<100; i++){
-            arr.push(randomIntFromInterval(5,500));
-        }
-        setArray(arr);
-    }
-
 
     return (
         <div className="array-container">
