@@ -14,8 +14,12 @@ function App() {
                 for (let j=0; j<randomIntFromInterval(1,100); j++){
                     arr.push(randomIntFromInterval(-1000,1000));
                 }
-                const JSsortedArray = [...array].sort(sortNumber);
-                const sortedArray = mergeSort(array);
+                const JSsortedArray = [...arr].sort(sortNumber);
+                const dummySetArray = (a) => {
+                    return;
+                }
+                const x = [-4000];
+                const sortedArray = mergeSort(arr, dummySetArray, 0, x, arr);
                 if (areArraysEqual(JSsortedArray, sortedArray)) {
                     console.log('true');
                 } else {
@@ -26,8 +30,23 @@ function App() {
         }
     };
     const algos = {
-        mergeSort: (arr)=>{
-            setArray(mergeSort(arr));
+        mergeSort: ()=>{
+            // const animations = mergeSort(array);
+            // for (let i=0; i<animations.length; i++){
+            //     const {comparision, swap} = animations[i];
+            //     setTimeout(()=>{
+            //         const arrayBars = document.getElementsByClassName('array-bar');
+            //         arrayBars[comparision[0]].style.backgroundColor = 'red';
+            //         arrayBars[comparision[1]].style.backgroundColor = 'red';
+            //         setTimeout(()=>{
+            //             arrayBars[comparision[1]].style.backgroundColor = 'pink';
+            //             arrayBars[comparision[0]].style.backgroundColor = 'pink';
+            //         }, (i+1) * 10);
+            //     }, i*10)
+            // }
+            // arra.splice(1, arr.length, ...arr);
+            let x = [0];
+            mergeSort(array.slice(), setArray, 0, x, array.slice());
         }
     };
 
@@ -45,7 +64,7 @@ function App() {
   return (
     <>
         <SortingVisualizer resetArray={resetArray} array={array}/> 
-        <Footer array={array} resetArray={resetArray} testFunctions={testFunctions} algos={algos}/>
+        <Footer resetArray={resetArray} testFunctions={testFunctions} algos={algos}/>
     </>
   );
 }

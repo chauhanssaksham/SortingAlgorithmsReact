@@ -1,14 +1,14 @@
 import React from 'react'
 import './Footer.css'
 
-const Footer = ({resetArray, algos, testFunctions, array}) => {
+const Footer = ({resetArray, algos, testFunctions}) => {
     return (
         <footer>
             <div><a href="#!" onClick={resetArray}>Generate new array</a></div>
             <div>Number of elements</div>
-            <div class="sortButtons">
+            <div className="sortButtons">
                 <div>
-                    <a href="#!" onClick={()=>{algos.mergeSort(array)}}>Merge Sort</a>
+                    <a href="#!" onClick={algos.mergeSort}>Merge Sort</a>
                     <a href="#!" onClick={()=>{testFunctions.mergeSortTest()}}>Merge Test</a>
                 </div>
                 <div>
