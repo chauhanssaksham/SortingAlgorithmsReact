@@ -31,20 +31,6 @@ function App() {
     };
     const algos = {
         mergeSort: ()=>{
-            // const animations = mergeSort(array);
-            // for (let i=0; i<animations.length; i++){
-            //     const {comparision, swap} = animations[i];
-            //     setTimeout(()=>{
-            //         const arrayBars = document.getElementsByClassName('array-bar');
-            //         arrayBars[comparision[0]].style.backgroundColor = 'red';
-            //         arrayBars[comparision[1]].style.backgroundColor = 'red';
-            //         setTimeout(()=>{
-            //             arrayBars[comparision[1]].style.backgroundColor = 'pink';
-            //             arrayBars[comparision[0]].style.backgroundColor = 'pink';
-            //         }, (i+1) * 10);
-            //     }, i*10)
-            // }
-            // arra.splice(1, arr.length, ...arr);
             let x = [0];
             mergeSort(array.slice(), setArray, 0, x, array.slice());
         }
