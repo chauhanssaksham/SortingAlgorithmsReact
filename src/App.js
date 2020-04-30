@@ -6,6 +6,7 @@ import mergeSort from './algos/mergeSort'
 function App() {
     
     const [array, setArray] = useState([]);
+    const [numElements, setNumElements] = useState(100);
 
     const testFunctions = {
         mergeSortTest: () => {
@@ -41,16 +42,16 @@ function App() {
         e.preventDefault();
         }
         const arr = [];
-        for (let i=0; i<100; i++){
-            arr.push(randomIntFromInterval(5,500));
+        for (let i=0; i<numElements; i++){
+            arr.push(randomIntFromInterval(20,600));
         }
         setArray(arr);
     }
 
   return (
     <>
-        <SortingVisualizer resetArray={resetArray} array={array}/> 
-        <Footer resetArray={resetArray} testFunctions={testFunctions} algos={algos}/>
+        <SortingVisualizer resetArray={resetArray} array={array} numElements={numElements}/> 
+        <Footer resetArray={resetArray} testFunctions={testFunctions} algos={algos} setNumElements={setNumElements} numElements={numElements}/>
     </>
   );
 }

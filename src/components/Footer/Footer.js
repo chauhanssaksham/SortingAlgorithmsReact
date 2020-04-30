@@ -1,12 +1,23 @@
 import React from 'react'
 import './Footer.css'
 
-const Footer = ({resetArray, algos, testFunctions}) => {
+const Footer = ({resetArray, algos, testFunctions, numElements, setNumElements}) => {
+
+
     return (
         <footer>
             <div><a href="#!" onClick={resetArray}>Generate new array</a></div>
-            <div>Number of elements</div>
-            <div className="sortButtons">
+            <div className="flex-parent">
+                <div>
+                <span>Number of elements</span>
+                <span>
+                <input type="range" min="5" max="100" value={numElements} className="slider" id="myRange" onChange={e => setNumElements(e.target.value)} onMouseUp={resetArray}/>
+                {numElements}
+                </span>
+                </div>
+                
+            </div>
+            <div className="flex-parent">
                 <div>
                     <a href="#!" onClick={algos.mergeSort}>Merge Sort</a>
                     <a href="#!" onClick={()=>{testFunctions.mergeSortTest()}}>Merge Test</a>
