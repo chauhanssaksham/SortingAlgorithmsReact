@@ -1,42 +1,44 @@
+function changeBarsAfterDelay(mainArr, setArray, timeCounter){
+    let thisTime = timeCounter[0]++;
+    let thisArray = mainArr.slice();
+    setTimeout(function(){
+        setArray(thisArray);
+        // console.log(thisTime);
+    }, 10*thisTime);
+}
 const mergeSort = (array, setArray, startingIndex, timeCounter, mainArr) => {
     if (array.length <= 1){
         return array;
     }
     const midIndex = Math.floor(array.length / 2);
-    const firstHalf = mergeSort(array.slice(0,midIndex), setArray, 0, timeCounter, mainArr);
-    const secondHalf = mergeSort(array.slice(midIndex), setArray, midIndex, timeCounter, mainArr);
+    const firstHalf = mergeSort(array.slice(0,midIndex), setArray, startingIndex, timeCounter, mainArr);
+    const secondHalf = mergeSort(array.slice(midIndex), setArray, startingIndex+midIndex, timeCounter, mainArr);
     const sortedArray = [];
-    let i=0, j=0;
-    let firstHalfLength = firstHalf.length, secondHalfLength = secondHalf.length;
-    while(i<firstHalfLength && j<secondHalfLength){
+    while(firstHalf.length > 0 && secondHalf.length>0){
         if (firstHalf[0] < secondHalf[0]){
             sortedArray.push(firstHalf[0]);
-            i++;
             firstHalf.shift();
         } else {
             sortedArray.push(secondHalf[0]);
-            j++;
             secondHalf.shift();
         }
         let combinedArray = [...sortedArray, ...firstHalf, ...secondHalf];
         mainArr.splice(startingIndex, combinedArray.length, ...combinedArray);
-        setArray(mainArr);
+        changeBarsAfterDelay(mainArr, setArray, timeCounter);
     }
-    while (i<firstHalfLength) {
+    while (firstHalf.length > 0) {
         sortedArray.push(firstHalf[0]);
-        i++;
         firstHalf.shift();
         let combinedArray = [...sortedArray, ...firstHalf, ...secondHalf];
         mainArr.splice(startingIndex, combinedArray.length, ...combinedArray);
-        setArray(mainArr);
+        changeBarsAfterDelay(mainArr, setArray, timeCounter);
     }
-    while (j<secondHalfLength) {
+    while (secondHalf.length > 0) {
         sortedArray.push(secondHalf[0]);
-        j++;
         secondHalf.shift();
         let combinedArray = [...sortedArray, ...firstHalf, ...secondHalf];
         mainArr.splice(startingIndex, combinedArray.length, ...combinedArray);
-        setArray(mainArr);
+        changeBarsAfterDelay(mainArr, setArray, timeCounter);
     }
     return sortedArray;
 };
